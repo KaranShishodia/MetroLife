@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚇</text></svg>"
+    />
+    <title>Delhi Metro Smart Route</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="glass-panel control-panel">
+        <div class="header">
+          <i class="fa-solid fa-train-subway logo-icon"></i>
+          <h1>Metro<span class="highlight">Life</span></h1>
+          <p>Your Daily Delhi Route Partner</p>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa-solid fa-location-dot"></i> Start Station</label>
+          <select id="start-station">
+            <option disabled selected>Choose Departure</option>
+          </select>
+        </div>
+
+        <div class="connector">
+          <div class="line"></div>
+          <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fa-solid fa-map-pin"></i> Destination</label>
+          <select id="end-station">
+            <option disabled selected>Choose Arrival</option>
+          </select>
+        </div>
+
+        <button onclick="findPath()" class="search-btn">
+          Find Fastest Route <i class="fa-solid fa-bolt"></i>
+        </button>
+
+        <div id="result-container" class="result-box hidden">
+          <h3><i class="fa-solid fa-route"></i> Optimal Path</h3>
+          <div id="path-display"></div>
+        </div>
+      </div>
+
+      <div class="map-area">
+        <div class="map-network">
+          <div class="node n-kashmere" title="Kashmere Gate">KG</div>
+          <div class="node n-chandni" title="Chandni Chowk">CC</div>
+          <div class="node n-newdelhi" title="New Delhi">NDLS</div>
+          <div class="node n-rajiv" title="Rajiv Chowk">RC</div>
+          <div class="node n-karol" title="Karol Bagh">KB</div>
+          <div class="node n-noida" title="Noida Sec 18">N18</div>
+          <div class="node n-hauz" title="Hauz Khas">HK</div>
+          <div class="node n-igi" title="IGI Airport">IGI</div>
+          <div class="node n-lajpat" title="Lajpat Nagar">LN</div>
+
+          <div class="track t-yellow-1"></div>
+          <div class="track t-yellow-2"></div>
+          <div class="track t-blue-1"></div>
+          <div class="track t-express"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

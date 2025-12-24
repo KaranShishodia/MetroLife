@@ -1,0 +1,170 @@
+:root {
+    --bg-color: #0f172a;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary: #3b82f6;
+    --accent: #f59e0b;
+    --text: #e2e8f0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 20%);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main-wrapper {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Left Panel --- */
+.control-panel {
+    flex: 1;
+    padding: 40px;
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.highlight { color: var(--primary); }
+.logo-icon { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
+
+.input-group { margin: 15px 0; }
+.input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #94a3b8; }
+
+select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    outline: none;
+}
+
+.connector { text-align: center; color: #64748b; margin: -10px 0; z-index: 1; position: relative; }
+
+.search-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--primary), #2563eb);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Result Area --- */
+.result-box {
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    animation: fadeIn 0.5s ease;
+}
+
+.result-box h3 { margin: 0 0 10px 0; font-size: 1rem; color: #34d399; }
+.hidden { display: none; }
+
+#path-display { font-size: 0.9rem; line-height: 1.5; }
+
+/* --- Right Panel (Map) --- */
+.map-area {
+    flex: 1.5;
+    position: relative;
+    background: rgba(0,0,0,0.2);
+    border-radius: 0 20px 20px 0;
+}
+
+.map-network {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Nodes Styling */
+.node {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    cursor: pointer;
+}
+
+/* Node Positions (Approximate Delhi Map) */
+.n-kashmere { top: 10%; left: 50%; border: 3px solid #eab308; } /* Yellow Line Start */
+.n-chandni { top: 22%; left: 50%; border: 3px solid #eab308; }
+.n-newdelhi { top: 34%; left: 50%; border: 3px solid #eab308; }
+.n-rajiv { top: 46%; left: 50%; border: 3px solid #3b82f6; width: 40px; height: 40px; } /* Hub */
+.n-karol { top: 46%; left: 25%; border: 3px solid #3b82f6; }
+.n-noida { top: 46%; left: 85%; border: 3px solid #3b82f6; }
+.n-hauz { top: 70%; left: 50%; border: 3px solid #eab308; }
+.n-igi { top: 50%; left: 10%; border: 3px solid #f97316; } /* Airport Orange */
+.n-lajpat { top: 70%; left: 70%; border: 3px solid #ec4899; } /* Pink */
+
+/* Tracks (Lines) */
+.track {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Yellow Line Vertical */
+.t-yellow-1 { top: 12%; left: 51%; width: 4px; height: 35%; background: #eab308; transform: translateX(-50%); }
+.t-yellow-2 { top: 50%; left: 51%; width: 4px; height: 22%; background: #eab308; transform: translateX(-50%); }
+
+/* Blue Line Horizontal */
+.t-blue-1 { top: 49%; left: 27%; width: 56%; height: 4px; background: #3b82f6; transform: translateY(-50%); }
+
+/* Express Line Diagonal (Simple CSS rotation) */
+.t-express { 
+    top: 42%; left: 12%; width: 40%; height: 4px; 
+    background: #f97316; 
+    transform: rotate(25deg); 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
