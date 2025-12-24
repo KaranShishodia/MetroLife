@@ -7,6 +7,7 @@ MetroLife is a Java-based metro simulation and pathfinding system designed to mo
 
 **MetroLife** is a full-stack transit simulation engine designed to solve the "Shortest Path Problem" in complex urban networks. Unlike standard routing apps that rely on external APIs (like Google Maps), this project implements the core pathfinding logic from scratch using **Java**, demonstrating a deep understanding of Graph Theory and Heap data structures.
 
+
 ---
 
 ##  Key Features
